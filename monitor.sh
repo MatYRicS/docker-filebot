@@ -213,9 +213,8 @@ do
 
     echo "$(ts) Running Filebot command"
     s6-setuidgid bytesized /app/filebot.sh
-    PID=$!
+    echo "Done running filebot"
     last_run_time=$(date +"%s")
 
-    wait_for_command_to_complete $PID
   fi
 done <$pipe
