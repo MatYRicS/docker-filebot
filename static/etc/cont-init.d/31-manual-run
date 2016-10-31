@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
-
+export HOME=/config
 umask 0002
 
 echo "Starting Filebot run"

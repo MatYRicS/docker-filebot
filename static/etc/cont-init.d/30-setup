@@ -1,4 +1,5 @@
 #!/usr/bin/with-contenv bash
+export HOME=/config
 
 function ts {
   echo [`date '+%b %d %X'`]
@@ -23,5 +24,6 @@ if [ ! -d /root/.filebot ]; then
   echo "Creating symlink"
   mkdir /config/filebot
   ln -s /config/filebot /root/.filebot
+  chown -R bytesized:bytesized /root/
   chmod -R 777 /root
 fi
