@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+
+umask 0002
+
+echo "Starting Filebot run"
+exec s6-setuidgid bytesized /app/filebot.sh
