@@ -19,11 +19,3 @@ function setup_opensubtitles_account {
 setup_opensubtitles_account
 
 chown -R bytesized:bytesized /app
-
-if [ ! -d /root/.filebot ]; then
-  echo "Creating symlink"
-  mkdir /config/filebot
-  ln -s /config/filebot /root/.filebot
-  chown -R bytesized:bytesized /root/
-  chmod -R 777 /root
-fi
