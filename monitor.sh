@@ -40,10 +40,10 @@ function is_change_event {
   elif [ "$EVENT" == "CREATE,ISDIR" ]
   then
     echo "$(ts) Detected new dir: $INFO"
-  elif [ "$EVENT" == "MOVED_TO,IS_DIR" ]
+  elif [ "$EVENT" == "MOVED_TO,ISDIR" ]
   then
     echo "$(ts) Detected dir moved into dir: $INFO"
-  elif [ "$EVENT" == "MOVED_FROM,IS_DIR" ]
+  elif [ "$EVENT" == "MOVED_FROM,ISDIR" ]
   then
     echo "$(ts) Detected dir moved out of dir: $INFO"
   elif [ "$EVENT" == "DELETE,ISDIR" ]
@@ -212,9 +212,10 @@ do
     wait_for_minimum_period $last_run_time
 
     echo "$(ts) Running Filebot command"
-    s6-setuidgid bytesized /app/filebot.sh
-    echo "Done running filebot"
+    /app/filebot.sh &
+    PID=$!
+    echo "Got pid $PID"
     last_run_time=$(date +"%s")
-
+    wait_for_command_to_complete $PID
   fi
 done <$pipe
