@@ -18,4 +18,4 @@ function setup_opensubtitles_account {
 }
 setup_opensubtitles_account
 
-chown -R bytesized:bytesized /app
+chown -R bytesized:bytesized /app /config
