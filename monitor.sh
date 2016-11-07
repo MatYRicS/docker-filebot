@@ -212,7 +212,7 @@ do
     wait_for_minimum_period $last_run_time
 
     echo "$(ts) Running Filebot command"
-    /app/filebot.sh &
+    /config/filebot.sh &
     PID=$!
     echo "Got pid $PID"
     last_run_time=$(date +"%s")

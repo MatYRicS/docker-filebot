@@ -14,11 +14,9 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
 RUN wget -O /app/filebot.deb 'https://app.filebot.net/download.php?type=deb&arch=amd64&version=4.7.2' && \
     dpkg -i /app/filebot.deb && rm /app/filebot.deb
 
-ADD filebot.sh /app/filebot.sh
 ADD monitor.sh /app/monitor.sh
 
-RUN chmod +x /app/monitor.sh && \
-    chmod +x /app/filebot.sh
+RUN chmod +x /app/monitor.sh
 
 VOLUME /config /host
 
