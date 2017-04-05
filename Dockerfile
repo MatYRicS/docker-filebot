@@ -11,7 +11,7 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
     apt-get install -y oracle-java8-installer inotify-tools && \
     mkdir /app/
 
-RUN wget -O /app/filebot.deb 'https://app.filebot.net/download.php?type=deb&arch=amd64&version=4.7.2' && \
+RUN wget -O /app/filebot.deb 'https://app.filebot.net/download.php?type=deb&arch=amd64&version=4.7.9' && \
     dpkg -i /app/filebot.deb && rm /app/filebot.deb
 
 ADD monitor.sh /app/monitor.sh
